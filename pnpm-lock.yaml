@@ -11,6 +11,9 @@ dependencies:
   '@tailwindcss/typography':
     specifier: ^0.5.9
     version: 0.5.9(tailwindcss@3.3.3)
+  github-slugger:
+    specifier: ^2.0.0
+    version: 2.0.0
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -565,6 +568,10 @@ packages:
       has: 1.0.3
       has-proto: 1.0.1
       has-symbols: 1.0.3
+    dev: false
+
+  /github-slugger@2.0.0:
+    resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
     dev: false
 
   /glob-parent@5.1.2:
