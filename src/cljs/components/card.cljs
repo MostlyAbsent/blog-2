@@ -37,4 +37,4 @@
               {:href href
                :class-name "text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primarf-400"
                :aria-label (str "Link to " title)}
-              "Learn more &#8012;")))) ;; html entities
+              "Learn more →"))))
