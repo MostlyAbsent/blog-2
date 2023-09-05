@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npx ony-allow pnpm",
-    "tw": "pnpm run tailwindcss -i global.css -o resources/public/assets/css/output.css --watch",
-		"watch:css": "onchange 'resources/public/assets/js/*' -- pnpm run tw",
+    "preinstall": "npx only-allow pnpm",
+    "tw": "pnpm tailwindcss -i global.css -o resources/public/assets/css/output.css",
+		"watch:css": "onchange 'resources/public/assets/js/*' -- pnpm tw",
     "watch:shadow": "shadow-cljs server",
     "dev": "pnpm run '/^watch:.*/'"
   },
