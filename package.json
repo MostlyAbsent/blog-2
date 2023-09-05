@@ -1,0 +1,27 @@
+{
+  "name": "blog-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npx ony-allow pnpm",
+    "tw": "pnpm run tailwindcss -i global.css -o resources/public/assets/css/output.css --watch",
+		"watch:css": "onchange 'resources/public/assets/js/*' -- pnpm run tw",
+    "watch:shadow": "shadow-cljs server",
+    "dev": "pnpm run '/^watch:.*/'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.7",
+    "react-refresh": "^0.14.0",
+    "shadow-cljs": "^2.25.3",
+    "tailwindcss": "^3.3.3"
+  },
+  "devDependencies": {
+    "onchange": "^7.1.0"
+  }
+}
