@@ -26,7 +26,7 @@
          (d/path {:d "M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"})
          (d/path {:d "M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"})))
 
-(lh/defnc social-icons [{:keys [kind href size] :or {size "8"}}]
+(lh/defnc social-icons [{:keys [kind href size] :or {size "h-8 w-8"}}]
   (d/a {:class-name "text-sm text-gray-500 transition hover: text-gray-600"
         :target "_blank"
         :rel "noopener noreferrer"
@@ -37,4 +37,4 @@
             "linkedin" linkedin
             "mail" mail
             "div")
-          {:class-name (str "fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-" size " w-" size)})))
+          {:class-name (str "fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 " size)})))

@@ -13,13 +13,13 @@
             (d/div {:class-name "mb-3 flex space-x-4"}
                    ($ social-icons/social-icons {:href (str "mailto:" (metadata/site :mail))
                                                  :kind "mail"
-                                                 :size "6"})
+                                                 :size "h-6 w-6"})
                    ($ social-icons/social-icons {:href (metadata/site :github)
                                                  :kind "github"
-                                                 :size "6"})
+                                                 :size "h-6 w-6"})
                    ($ social-icons/social-icons {:href (metadata/site :linkedin)
                                                  :kind "linkedin"
-                                                 :size "6"}))
+                                                 :size "h-6 w-6"}))
             (d/div {:class-name "mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400"}
                    (d/div (metadata/site :author))
                    (d/div " • ")
