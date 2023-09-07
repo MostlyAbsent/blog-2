@@ -16,3 +16,9 @@
            :locale "en-AU"
            :search {:provider "kbar"
                     :kbar-config {:search-documents-path "search.json"}}})
+
+(def header-nav-links [{:href "/" :title "Home"}
+                       {:href "/blog" :title "Blog"}
+                       {:href "/tags" :title "Tags"}
+                       {:href "/projects" :title "Projects"}
+                       {:href "/about" :title "About"}])
