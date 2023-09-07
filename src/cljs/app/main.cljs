@@ -49,43 +49,8 @@
             :aria-label (str "Read " title)}
            "Read more →"))))))))
 
-(lh/defnc home []
-  (let [MAX_DISPLAY 5
-        posts [{:slug "1"
-                :date "2023-09-07"
-                :summary "sure thing bro"
-                :tags ["a" "b" "c"]
-                :title "1"}
-               {:slug "2"
-                :date "2023-09-07"
-                :summary "sure thing bro"
-                :tags ["a" "b" "c"]
-                :title "2"}
-               {:slug "3"
-                :date "2023-09-07"
-                :summary "sure thing bro"
-                :tags ["a" "b" "c"]
-                :title "3"}
-               {:slug "4"
-                :date "2023-09-07"
-                :summary "sure thing bro"
-                :tags ["a" "b" "c"]
-                :title "4"}
-               {:slug "5"
-                :date "2023-09-07"
-                :summary "sure thing bro"
-                :tags ["a" "b" "c"]
-                :title "5"}
-               {:slug "6"
-                :date "2023-09-07"
-                :summary "sure thing bro"
-                :tags ["a" "b" "c"]
-                :title "6"}
-               {:slug "7"
-                :date "2023-09-07"
-                :summary "sure thing bro"
-                :tags ["a" "b" "c"]
-                :title "7"}]]
+(lh/defnc home [posts]
+  (let [MAX_DISPLAY 5]
     (<>
      (d/div
       {:class-name "divide-y divide-gray-200 dark:divide-gray-700"}
