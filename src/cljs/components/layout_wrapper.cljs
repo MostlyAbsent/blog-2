@@ -2,7 +2,7 @@
   (:require-macros
     [lib.helix-wrapper :as lh])
   (:require
-   [app.main :as main]
+   [app.home :as main]
    [components.footer :as footer]
    [components.header :as header]
    [components.section-container :as section-container]
