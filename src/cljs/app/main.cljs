@@ -8,7 +8,7 @@
    [util.date :as date]
    [util.metadata :as metadata]))
 
-(defn post [{:keys [slug date title summary tags]}]
+(lh/defnc post [{:keys [slug date title summary tags]}]
   (d/li
    {:key slug
     :class-name "py-12"}
@@ -49,7 +49,7 @@
             :aria-label (str "Read " title)}
            "Read more →"))))))))
 
-(lh/defnc home [posts]
+(lh/defnc home [{:keys [posts]}]
   (let [MAX_DISPLAY 5]
     (<>
      (d/div

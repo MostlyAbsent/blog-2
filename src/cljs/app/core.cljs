@@ -1,16 +1,16 @@
 (ns app.core
   (:require
    ["react-dom/client" :as rdom]
+   [app.home :as home]
    [helix.core :refer [$]]
-   [helix.dom :as d])
+   [promesa.core :as p])
   (:require-macros
    [lib.helix-wrapper :as lh]))
-
-(lh/defnc page
-  []
-  (d/p {:className "text-zinc-500"} "test"))
 
 (defonce root (rdom/createRoot (js/document.getElementById "app")))
 
 (defn ^:export init []
-  (.render root ($ page)))
+  (p/let [_response (js/fetch "/api/posts/")
+          response (.json _response)
+          data (js->clj response :keywordize-keys true)]
+    (.render root ($ home/home data))))
