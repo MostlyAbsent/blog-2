@@ -3,17 +3,16 @@
    [lib.helix-wrapper :as lh])
   (:require
    ["react-markdown$default" :as ReactMarkdown]
-   [cljs.pprint :as pprint]
    [helix.core :refer [$ <>]]
+   [helix.hooks :as hooks]
    [layout.author-layout :as author-layout]
    [promesa.core :as p]
-   [util.metadata :as metadata]
-   [helix.hooks :as hooks]))
+   [util.metadata :as metadata]))
 
 (lh/defnc about []
   (let [author (:author (metadata/author))
         [body set-body] (hooks/use-state {:body ""})]
-    (p/let [response (js/fetch "assets/author.md")
+    (p/let [response (js/fetch "/assets/data/author.md")
             _response (.text response)]
       (set-body assoc :body _response))
     (set! (. js/document -title) "About")
