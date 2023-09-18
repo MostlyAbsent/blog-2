@@ -1,8 +1,6 @@
 (ns components.logo
   (:require
-   [helix.core :refer [$ <>]]
-   [helix.dom :as d]
-   [util.metadata :as metadata])
+   [helix.dom :as d])
   (:require-macros
    [lib.helix-wrapper :as lh]))
 

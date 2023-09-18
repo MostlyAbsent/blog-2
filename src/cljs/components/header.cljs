@@ -34,6 +34,6 @@
                   :href href
                   :class-name "hidden sm:block font-mediem text-gray-900 dark:text-gray-100"}
                  title)))))
-   ;;($ search-button/search-button)
+   ($ search-button/search-button)
    ;; theme switch button
    ($ mobile-nav/mobile-nav)))
