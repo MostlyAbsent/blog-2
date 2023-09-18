@@ -1,6 +1,7 @@
 (ns app.core
   (:require
    ["react-dom/client" :as rdom]
+   [app.about :as about]
    [app.home :as home]
    [app.not-found :as not-found]
    [components.footer :as footer]
@@ -15,13 +16,15 @@
 
 (def views {:home home/home
             :footer footer/footer
-            :not-found not-found/not-found})
+            :not-found not-found/not-found
+            :about about/about})
 
 (def pathname
   (.-pathname (.-location js/document)))
 
 (def view (get {"/" :home
-                "/footer" :footer} pathname :not-found))
+                "/footer" :footer
+                "/about" :about} pathname :not-found))
 
 (lh/defnc main-view [{:keys [children]}]
   (let [[current-view] (hooks/use-state view)]

@@ -1,4 +1,6 @@
-(ns util.metadata)
+(ns util.metadata
+  (:require
+    [components.logo :as logo]))
 
 (def site {:title "Just The Blog"
            :author "Jacob Doran"
@@ -22,3 +24,11 @@
                        {:href "/tags" :title "Tags"}
                        {:href "/projects" :title "Projects"}
                        {:href "/about" :title "About"}])
+
+(defn author []
+  {:author {:name (:author site)
+            :avatar logo/logo
+            :occupation "Software Developer"
+            :mail (:mail site)
+            :linkedin (:linkedin site)
+            :github (:github site)}})
