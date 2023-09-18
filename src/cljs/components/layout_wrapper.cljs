@@ -14,7 +14,7 @@
      (d/div
       {:class-name "latin flex h-screen flex-col justify-between font-sans"}
       ($ header/header)
-      ($ main/home
+      ($ "div"
          {:class-name "mb-auto"}
          children)
       ($ footer/footer))))
