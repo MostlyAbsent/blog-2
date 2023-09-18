@@ -17,3 +17,7 @@ I'd like to add theme switching without using next.js dependency and needing to 
 ### theme switch button
 
 I've left a code comment "theme switch button" to note where to put the button
+
+## 3 Author bio
+
+I've left lorem ipsum as my author bio
