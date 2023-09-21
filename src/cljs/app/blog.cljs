@@ -4,7 +4,7 @@
   (:require
    [helix.core :refer [$ <>]]
    [helix.hooks :as hooks]
-   [layout.list :as list]
+   [layout.post-list :as list]
    [promesa.core :as p]))
 
 (lh/defnc blog []

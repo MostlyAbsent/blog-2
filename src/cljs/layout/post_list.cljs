@@ -1,4 +1,4 @@
-(ns layout.list
+(ns layout.post-list
   (:require-macros
    [lib.helix-wrapper :as lh])
   (:require
@@ -62,7 +62,7 @@
         [tag-keys set-tag-keys] (hooks/use-state [])]
     (hooks/use-effect
      []
-     (p/let [res (js/fetch "/api/tag-data")
+     (p/let [res (js/fetch "/api/tag-counts")
              _res (.json res)
              data (js->clj _res)]
        (set-tag-count merge data)))
@@ -135,6 +135,9 @@
                (d/div
                 {:class-name "flex flex-wrap"}
                 (for [t tags]
-                  ($ tag/tag {:key t :title (:title t)}))))))))))
+                  ($ tag/tag {:key t :title (:title t)})))))
+             (d/div
+              {:class-name "prose max-w-none text-gray-500 dark:text-gray-400"}
+              summary))))))
        (if (> (:total pagination) 1)
          ($ paginator {:pagination pagination})))))))
