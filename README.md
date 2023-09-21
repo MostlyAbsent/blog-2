@@ -25,3 +25,5 @@ I've left lorem ipsum as my author bio
 ## 4 markdown footnotes
 
 The footnotes aren't rendering, I wonder if remarkgfm might do the trick.
+
+## 5 Build the api routes
