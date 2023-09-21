@@ -2,13 +2,9 @@
   (:require-macros
    [lib.helix-wrapper :as lh])
   (:require
-   ["github-slugger" :refer [slug]]
    [clojure.string :as str]
-   [components.tag :as tag]
    [helix.core :refer [$ <>]]
    [helix.dom :as d]
-   [helix.hooks :as hooks]
-   [promesa.core :as p]
    [util.date :as date]
    [util.metadata :as metadata]))
 
