@@ -12,7 +12,8 @@
    [components.layout-wrapper :as layout-wrapper]
    [helix.core :refer [$]]
    [helix.hooks :as hooks]
-   [promesa.core :as p])
+   [promesa.core :as p]
+   [app.tag :as tag])
   (:require-macros
    [lib.helix-wrapper :as lh]))
 
@@ -24,6 +25,7 @@
             :not-found not-found/not-found
             :post post/post
             :projects projects/projects
+            :tag tag/tag
             :tags tags/tags})
 
 (defn view [path]
@@ -31,6 +33,9 @@
         path (second splits)]
     (cond
       (= splits [])               :home
+      (and
+       (= "tags" path)
+       (= 3 (count splits)))      :tag
       (and
        (= "blog" path)
        (= 3 (count splits)))      :post

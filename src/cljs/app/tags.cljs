@@ -14,7 +14,7 @@
         [sorted-tags set-tag-keys] (hooks/use-state [])]
     (hooks/use-effect
       []
-      (p/let [res (js/fetch "/api/tag-data")
+      (p/let [res (js/fetch "/api/tag-counts")
               _res (.json res)
               data (js->clj _res)]
         (set-tag-count merge data)))

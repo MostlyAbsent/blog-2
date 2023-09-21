@@ -13,6 +13,11 @@
 
 (defn tag-data [_]
   (r/response
+   {:title "guide"
+    :description "A guide to a topic."}))
+
+(defn tag-counts [_]
+  (r/response
    {"markdown" 3
     "code" 3
     "features" 3
@@ -44,50 +49,52 @@
      :key 1
      :date "2003"
      :summary "first"
-     :tags [{:title "test"
+     :tags [{:title "guide"
              :key 1}
             {:title "two"
              :key 2}]
-     :title "test"}
+     :title "guide"}
     {:slug "/two"
      :path "/two"
      :key 2
      :date "2003"
      :summary "second"
-     :tags [{:title "test"
+     :tags [{:title "guide"
              :key 1}]
-     :title "test"}
+     :title "guide"}
     {:slug "/three"
      :path "/three"
      :key 3
      :date "2003"
      :summary "third"
-     :tags [{:title "test"
+     :tags [{:title "guide"
              :key 1}]
-     :title "test"}
+     :title "guide"}
     {:slug "/fourth"
      :path "/fourth"
      :key 4
      :date "2003"
      :summary "fourth"
-     :tags [{:title "test"
+     :tags [{:title "guide"
              :key 1}]
-     :title "test"}
+     :title "guide"}
     {:slug "/fifth"
      :path "/fifth"
      :key 5
      :date "2003"
      :summary "fifth"
-     :tags [{:title "test"
+     :tags [{:title "guide"
              :key 1}]
-     :title "test"}]))
+     :title "guide"}]))
 
 (def app
   (ring/ring-handler
    (ring/router
     ["/"
      ["api/"
-      ["tag-data" tag-data]
+      ["tag-data/*" tag-data]
+      ["tag-counts" tag-counts]
+      ["posts-tagged/*" posts]
       ["posts" posts]
       ["projects" projects]]
      ["assets/*" (ring/create-resource-handler {:root "public/assets"})]
