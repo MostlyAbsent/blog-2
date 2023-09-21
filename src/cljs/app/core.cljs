@@ -7,6 +7,7 @@
    [app.not-found :as not-found]
    [app.post :as post]
    [app.projects :as projects]
+   [app.tags :as tags]
    [clojure.string :as str]
    [components.layout-wrapper :as layout-wrapper]
    [helix.core :refer [$]]
@@ -22,19 +23,21 @@
             :home home/home
             :not-found not-found/not-found
             :post post/post
-            :projects projects/projects})
+            :projects projects/projects
+            :tags tags/tags})
 
 (defn view [path]
   (let [splits (str/split path "/")
         path (second splits)]
     (cond
       (= splits [])               :home
-      (= "about" path)            :about
-      (= "projects" path)         :projects
       (and
        (= "blog" path)
        (= 3 (count splits)))      :post
+      (= "about" path)            :about
       (= "blog" path)             :blog
+      (= "projects" path)         :projects
+      (= "tags" path)             :tags
       :else                       :not-found)))
 
 (lh/defnc main-view [{:keys [children]}]
