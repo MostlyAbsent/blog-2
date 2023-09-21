@@ -2,7 +2,6 @@
   (:require-macros
    [lib.helix-wrapper :as lh])
   (:require
-   ["github-slugger" :refer [slug]]
    [components.tag :as tag]
    [helix.core :refer [$ <>]]
    [helix.dom :as d]
@@ -41,6 +40,4 @@
            (d/div
             {:key t
              :class-name "mb-2 mr-5 mt-2"}
-            ($ tag/tag {:title t})
-            (d/a
-             {:href (str "/tags/" (slug t))})))))))))
+            ($ tag/tag {:title t})))))))))

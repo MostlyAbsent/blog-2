@@ -5,7 +5,6 @@
    [lib.helix-wrapper :as lh]))
 
 (lh/defnc link [{:keys [href] :as rest}]
-  (d/a {:target "_blank"
-        :rel "noopener noreferrer"
+  (d/a {:rel "noopener noreferrer"
         :href href
         & rest}))
