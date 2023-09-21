@@ -3,7 +3,6 @@
    [lib.helix-wrapper :as lh])
   (:require
    ["github-slugger" :refer [slug]]
-   [cljs.pprint :as pp]
    [components.tag :as tag]
    [helix.core :refer [$ <>]]
    [helix.dom :as d]
