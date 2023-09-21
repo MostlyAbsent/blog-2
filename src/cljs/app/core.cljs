@@ -6,8 +6,8 @@
    [app.home :as home]
    [app.not-found :as not-found]
    [app.post :as post]
+   [app.projects :as projects]
    [clojure.string :as str]
-   [components.footer :as footer]
    [components.layout-wrapper :as layout-wrapper]
    [helix.core :refer [$]]
    [helix.hooks :as hooks]
@@ -19,21 +19,23 @@
 
 (def views {:about about/about
             :blog blog/blog
-            :footer footer/footer
+            :home home/home
             :not-found not-found/not-found
             :post post/post
-            :home home/home})
+            :projects projects/projects})
 
 (defn view [path]
-  (let [splits (str/split path "/")]
+  (let [splits (str/split path "/")
+        path (second splits)]
     (cond
-      (= splits []) :home
-      (= "about" (second splits)) :about
+      (= splits [])               :home
+      (= "about" path)            :about
+      (= "projects" path)         :projects
       (and
-       (= "blog" (second splits))
-       (= 3 (count splits))) :post
-      (= "blog" (second splits)) :blog
-      :else :not-found)))
+       (= "blog" path)
+       (= 3 (count splits)))      :post
+      (= "blog" path)             :blog
+      :else                       :not-found)))
 
 (lh/defnc main-view [{:keys [children]}]
   (let [pathname (.-pathname (.-location js/document))

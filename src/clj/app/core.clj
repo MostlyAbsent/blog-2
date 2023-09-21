@@ -31,6 +31,12 @@
     "multi-author" 1
     "feature" 1}))
 
+(defn projects [_]
+  (r/response [{:title "breadit"
+                :description "A Full Stack Reddit clone."
+                :img-src "/assets/data/img/breadit.png"
+                :href "breadit.just-the.tips"}]))
+
 (defn posts [_]
   (r/response
    [{:slug "/one"
@@ -82,7 +88,8 @@
     ["/"
      ["api/"
       ["tag-data" tag-data]
-      ["posts" posts]]
+      ["posts" posts]
+      ["projects" projects]]
      ["assets/*" (ring/create-resource-handler {:root "public/assets"})]
      ["" (fn [_] {:body (index) :status 200})]
      ["footer" (fn [_] {:body (index) :status 200})]]
