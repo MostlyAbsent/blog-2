@@ -35,6 +35,7 @@
             title (str/join " " (-> (:title t)
                                     str/capitalize
                                     (str/split "-")))]
+        (set! (.-title js/document) title)
         ($ tag-list/tag-list
            {:posts (:posts tagged-posts)
             :pagination pagination
