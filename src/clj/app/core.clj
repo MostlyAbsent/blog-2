@@ -1,6 +1,7 @@
 (ns app.core
   (:require
    [app.posts :as posts]
+   [app.tags :as tags]
    [clojure.java.io :as io]
    [muuntaja.core :as m]
    [reitit.ring :as ring]
@@ -94,7 +95,7 @@
     ["/"
      ["api/"
       ["tag-data/*" tag-data]
-      ["tag-counts" tag-counts]
+      ["tag-counts" tags/tag-counts]
       ["posts-tagged/*" posts]
       ["posts" posts/posts]
       ["projects" projects]]
