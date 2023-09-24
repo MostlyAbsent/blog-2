@@ -1,5 +1,6 @@
 (ns app.core
   (:require
+   [app.posts :as posts]
    [clojure.java.io :as io]
    [muuntaja.core :as m]
    [reitit.ring :as ring]
@@ -95,7 +96,7 @@
       ["tag-data/*" tag-data]
       ["tag-counts" tag-counts]
       ["posts-tagged/*" posts]
-      ["posts" posts]
+      ["posts" posts/posts]
       ["projects" projects]]
      ["assets/*" (ring/create-resource-handler {:root "public/assets"})]
      ["" (fn [_] {:body (index) :status 200})]
