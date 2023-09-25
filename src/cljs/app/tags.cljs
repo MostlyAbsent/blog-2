@@ -40,4 +40,5 @@
            (d/div
             {:key t
              :class-name "mb-2 mr-5 mt-2"}
-            ($ tag/tag {:title t})))))))))
+            ($ tag/tag {:title t})
+            (str " (" (get tag-counts t) ")")))))))))

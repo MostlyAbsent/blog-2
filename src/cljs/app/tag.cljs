@@ -5,7 +5,7 @@
    [clojure.string :as str]
    [helix.core :refer [$]]
    [helix.hooks :as hooks]
-   [layout.tag-list :as tag-list]
+   [layout.post-list :as list]
    [promesa.core :as p]))
 
 (lh/defnc tag []
@@ -36,7 +36,8 @@
                                     str/capitalize
                                     (str/split "-")))]
         (set! (.-title js/document) title)
-        ($ tag-list/tag-list
+        ($ list/post-list
            {:posts (:posts tagged-posts)
+            :initial-posts (:posts tagged-posts)
             :pagination pagination
             :title title})))))

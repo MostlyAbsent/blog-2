@@ -61,16 +61,16 @@
         [tag-count set-tag-count] (hooks/use-state {})
         [tag-keys set-tag-keys] (hooks/use-state [])]
     (hooks/use-effect
-     []
-     (p/let [res (js/fetch "/api/tag-counts")
-             _res (.json res)
-             data (js->clj _res)]
-       (set-tag-count merge data)))
+      []
+      (p/let [res (js/fetch "/api/tag-counts")
+              _res (.json res)
+              data (js->clj _res)]
+        (set-tag-count merge data)))
     (hooks/use-effect
-     [tag-count]
-     (set-tag-keys (->> tag-count
-                        (sort-by val >)
-                        keys)))
+      [tag-count]
+      (set-tag-keys (->> tag-count
+                         (sort-by val >)
+                         keys)))
     (<>
      (d/div
       (d/div
@@ -100,44 +100,44 @@
              (if (= (slug t) (second (str/split pathname "/tags/")))
                (d/h3
                 {:class-name "inline py-2 px-3 uppercase text-sm font-bold text-primary-500"}
-                (str t " " (get tag-count t)))
+                (str t " (" (get tag-count t) ")"))
                (d/a
                 {:href (str "/tags/" (slug t))
                  :class-name "py-2 px-3 uppercase text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-500"
                  :aria-label (str "View posts tagged " t)}
-                (str t " " (get tag-count t))))))))))
-      (d/div
-       (d/ul
-        (for [{:keys [path date title summary tags]} initial-posts]
-          (d/li
-           {:key path
-            :class-name "py-5"}
-           (d/article
-            {:class-name "space-y-2 flex flex-col xl:space-y-0"}
-            (d/dl
-             (d/dt
-              {:class-name "sr-only"}
-              "Published on")
-             (d/dd
-              {:class-name "text-base font-medium leading-6 text-gray-500 dark:text-gray-400"}
-              (d/time
-               {:date-time date}
-               (date/format-date date (metadata/site :locale)))))
-            (d/div
-             {:class-name "space-y-3"}
+                (str t " (" (get tag-count t) ")"))))))))
+       (d/div
+        (d/ul
+         (for [{:keys [path date title summary tags]} initial-posts]
+           (d/li
+            {:key path
+             :class-name "py-5"}
+            (d/article
+             {:class-name "space-y-2 flex flex-col xl:space-y-0"}
+             (d/dl
+              (d/dt
+               {:class-name "sr-only"}
+               "Published on")
+              (d/dd
+               {:class-name "text-base font-medium leading-6 text-gray-500 dark:text-gray-400"}
+               (d/time
+                {:date-time date}
+                (date/format-date date (metadata/site :locale)))))
              (d/div
-              (d/h2
-               {:class-name "text-2xl font-bold leading-8 tracking-tight"}
-               (d/a
-                {:href (str "/" path)
-                 :class-name "text-gray-900"}
-                title)
-               (d/div
-                {:class-name "flex flex-wrap"}
-                (for [t tags]
-                  ($ tag/tag {:key t :title (:title t)})))))
-             (d/div
-              {:class-name "prose max-w-none text-gray-500 dark:text-gray-400"}
-              summary))))))
-       (if (> (:total pagination) 1)
-         ($ paginator {:pagination pagination})))))))
+              {:class-name "space-y-3"}
+              (d/div
+               (d/h2
+                {:class-name "text-2xl font-bold leading-8 tracking-tight"}
+                (d/a
+                 {:href (str "/" path)
+                  :class-name "text-gray-900"}
+                 title)
+                (d/div
+                 {:class-name "flex flex-wrap"}
+                 (for [t tags]
+                   ($ tag/tag {:key t :title (:title t)})))))
+              (d/div
+               {:class-name "prose max-w-none text-gray-500 dark:text-gray-400"}
+               summary))))))
+        (if (> (:total pagination) 1)
+          ($ paginator {:pagination pagination}))))))))
