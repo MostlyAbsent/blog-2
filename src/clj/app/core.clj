@@ -13,11 +13,6 @@
 (defn index []
   (slurp (io/resource "public/index.html")))
 
-(defn tag-data [_]
-  (r/response
-   {:title "guide"
-    :description "A guide to a topic."}))
-
 (defn projects [_]
   (r/response [{:title "breadit"
                 :description "A Full Stack Reddit clone."
