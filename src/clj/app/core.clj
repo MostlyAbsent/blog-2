@@ -19,51 +19,6 @@
                 :img-src "/assets/data/img/breadit.png"
                 :href "breadit.just-the.tips"}]))
 
-(defn posts [_]
-  (r/response
-   [{:slug "/one"
-     :path "/one"
-     :key 1
-     :date "2003"
-     :summary "first"
-     :tags [{:title "guide"
-             :key 1}
-            {:title "two"
-             :key 2}]
-     :title "guide"}
-    {:slug "/two"
-     :path "/two"
-     :key 2
-     :date "2003"
-     :summary "second"
-     :tags [{:title "guide"
-             :key 1}]
-     :title "guide"}
-    {:slug "/three"
-     :path "/three"
-     :key 3
-     :date "2003"
-     :summary "third"
-     :tags [{:title "guide"
-             :key 1}]
-     :title "guide"}
-    {:slug "/fourth"
-     :path "/fourth"
-     :key 4
-     :date "2003"
-     :summary "fourth"
-     :tags [{:title "guide"
-             :key 1}]
-     :title "guide"}
-    {:slug "/fifth"
-     :path "/fifth"
-     :key 5
-     :date "2003"
-     :summary "fifth"
-     :tags [{:title "guide"
-             :key 1}]
-     :title "guide"}]))
-
 (def app
   (ring/ring-handler
    (ring/router
@@ -71,7 +26,7 @@
      ["api/"
       ["tag-data/*" tags/tag-data]
       ["tag-counts" tags/tag-counts]
-      ["posts-tagged/*" posts]
+      ["posts-tagged/*" posts/posts-tagged]
       ["posts" posts/posts]
       ["projects" projects]]
      ["assets/*" (ring/create-resource-handler {:root "public/assets"})]

@@ -2,7 +2,8 @@
   (:require
    [clojure.java.io :as io]
    [clojure.string :as str]
-   [ring.util.response :as r]))
+   [ring.util.response :as r]
+   [app.tags :as tags]))
 
 (defn files-in-folder
   [path]
@@ -36,7 +37,7 @@
         metadata (grab-meta-block t)]
     (conj acc
           (merge {:slug (second (re-find #"(.+?)\." (.getName f)))
-                  :path (second (re-find #"(.+?)\." (.getName f)))}
+                  :path (str "blog/" (second (re-find #"(.+?)\." (.getName f))))}
                  metadata))))
 
 (defn posts [_]
@@ -45,3 +46,13 @@
         files-in-folder
         (filter markdown-filter)
         (reduce post-metadada []))))
+
+(defn posts-tagged [{:keys [path-params]}]
+  (let [t (second (first path-params))
+        posts (->> "./resources/public/assets/data/blog/"
+                   files-in-folder
+                   (filter markdown-filter)
+                   (reduce post-metadada [])
+                   (filter (fn [{:keys [tags]}]
+                             (some #{t} tags))))]
+    (r/response posts)))
