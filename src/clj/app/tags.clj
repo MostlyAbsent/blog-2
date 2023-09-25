@@ -1,5 +1,6 @@
 (ns app.tags
   (:require
+   [clojure.edn :as edn]
    [clojure.java.io :as io]
    [clojure.string :as str]
    [ring.util.response :as r]))
@@ -46,3 +47,15 @@
         files-in-folder
         (filter markdown-filter)
         (reduce tag-counter {}))))
+
+(defn tag-data [{:keys [path-params]}]
+  (let [t (second (first path-params))
+        data (->> "./resources/public/assets/data/tags.edn"
+                  slurp
+                  edn/read-string
+                  (reduce (fn [acc {:keys [title] :as tag}]
+                            (if (= title t)
+                              (merge acc tag)
+                              acc))
+                          {:title t :description ""}))]
+    (r/response data)))

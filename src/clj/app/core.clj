@@ -74,7 +74,7 @@
    (ring/router
     ["/"
      ["api/"
-      ["tag-data/*" tag-data]
+      ["tag-data/*" tags/tag-data]
       ["tag-counts" tags/tag-counts]
       ["posts-tagged/*" posts]
       ["posts" posts/posts]
