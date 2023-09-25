@@ -18,26 +18,6 @@
    {:title "guide"
     :description "A guide to a topic."}))
 
-(defn tag-counts [_]
-  (r/response
-   {"markdown" 3
-    "code" 3
-    "features" 3
-    "next-js" 5
-    "math" 1
-    "ols" 1
-    "github" 1
-    "guide" 4
-    "tailwind" 2
-    "holiday" 1
-    "canada" 1
-    "images" 1
-    "writings" 1
-    "book" 1
-    "reflection" 1
-    "multi-author" 1
-    "feature" 1}))
-
 (defn projects [_]
   (r/response [{:title "breadit"
                 :description "A Full Stack Reddit clone."
