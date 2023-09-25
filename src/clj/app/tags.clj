@@ -32,8 +32,6 @@
   (let [t (slurp f)
         metadata (grab-meta-block t)
         tags (reduce (fn [acc x] (assoc acc x 1)) {} metadata)]
-    (println acc)
-    (println tags)
     (reduce (fn [acc y]
               (let [x (first y)]
                 (if (get acc x)
