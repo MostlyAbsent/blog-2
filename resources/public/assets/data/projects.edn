@@ -1,4 +1,4 @@
 [{:title "breadit"
-  :description "A Full Stack Reddit clone."
+  :description "A Full Stack Reddit clone, built using React, Next.js; using planetscale datase, OAuth2 authentication, and upstash redis caching."
   :img-src "/assets/data/img/breadit.png"
   :href "https://breadit.just-the.tips"}]
