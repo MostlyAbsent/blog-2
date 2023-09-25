@@ -1,6 +1,5 @@
 (ns app.projects
   (:require
-   [app.projects :as projects]
    [clojure.edn :as edn]
    [ring.util.response :as r]))
 

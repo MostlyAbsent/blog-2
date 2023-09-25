@@ -11,7 +11,7 @@
   (:gen-class))
 
 (defn index []
-  (slurp (io/resource "public/index.html")))
+  (slurp (io/file "./resources/public/index.html")))
 
 (def app
   (ring/ring-handler
@@ -23,7 +23,7 @@
       ["posts-tagged/*" posts/posts-tagged]
       ["posts" posts/posts]
       ["projects" projects/projects]]
-     ["assets/*" (ring/create-resource-handler {:root "public/assets"})]
+     ["assets/*" (ring/create-file-handler {:root "./resources/public/assets/"})]
      ["" (fn [_] {:body (index) :status 200})]
      ["footer" (fn [_] {:body (index) :status 200})]]
     {:data {:muuntaja m/instance
@@ -35,3 +35,6 @@
 (defn start []
   (ring-jetty/run-jetty #'app {:port 3000
                                :join? false}))
+
+(defn -main []
+  (start))
