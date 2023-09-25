@@ -123,7 +123,7 @@
              (for [t (:tags meta)]
                (d/a
                 {:class-name "mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                 :href (str "/tags" t)}
+                 :href (str "/tags/" t)}
                 t))))))
         (d/div
          {:class-name "pt-4 xl:pt-8"}
