@@ -17,7 +17,7 @@ RUN curl -L -O https://github.com/clojure/brew-install/releases/latest/download/
 RUN chmod +x linux-install.sh
 RUN sudo ./linux-install.sh
 
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --shamefully-hoist
 RUN pnpm shadow-cljs release app
 RUN pnpm tailwindcss -i global.css -o resources/public/assets/css/output.css --minify
 
