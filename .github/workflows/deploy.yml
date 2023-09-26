@@ -16,6 +16,6 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: 22
           script: |
-            cd blog-app
+            cd blog-2
             git pull
             docker compose up --build -d
