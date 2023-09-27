@@ -46,7 +46,7 @@
              (remove nil?)
              (reduce merge)
              set-meta)))
-    (.log js/console (pp/pprint meta))
+    (set! (. js/document -title) (str (:page-title metadata/site) (:title meta)))
     (d/section
      {:class-name "mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0"}
      (d/div

@@ -2,9 +2,10 @@
   (:require
     [components.logo :as logo]))
 
-(def site {:title "Just The Blog"
+(def site {:title "Just The Tips"
            :author "Jacob Doran"
-           :header-title "Just The Blog"
+           :header-title "Just The Tips"
+           :page-title "Just The Tips | "
            :description "A blog for exploratory code"
            :language "en-AU"
            :theme "system"

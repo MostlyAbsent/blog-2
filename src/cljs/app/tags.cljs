@@ -6,23 +6,24 @@
    [helix.core :refer [$ <>]]
    [helix.dom :as d]
    [helix.hooks :as hooks]
-   [promesa.core :as p]))
+   [promesa.core :as p]
+   [util.metadata :as metadata]))
 
 (lh/defnc tags []
   (let [[tag-counts set-tag-count] (hooks/use-state {})
         [sorted-tags set-tag-keys] (hooks/use-state [])]
     (hooks/use-effect
-      []
-      (p/let [res (js/fetch "/api/tag-counts")
-              _res (.json res)
-              data (js->clj _res)]
-        (set-tag-count merge data)))
+     []
+     (p/let [res (js/fetch "/api/tag-counts")
+             _res (.json res)
+             data (js->clj _res)]
+       (set-tag-count merge data)))
     (hooks/use-effect
-      [tag-counts]
-      (set-tag-keys (->> tag-counts
-                         (sort-by val >)
-                         keys)))
-    (set! (. js/document -title) "Tags")
+     [tag-counts]
+     (set-tag-keys (->> tag-counts
+                        (sort-by val >)
+                        keys)))
+    (set! (. js/document -title) (str (:page-title metadata/site) "Tags"))
     (set! (. js/document -description) "Things I blog about.")
     (<>
      (d/div

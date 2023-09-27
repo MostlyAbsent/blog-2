@@ -2,12 +2,12 @@
   (:require-macros
    [lib.helix-wrapper :as lh])
   (:require
-   [cljs.pprint :as pp]
    [components.card :as card]
    [helix.core :refer [$ <>]]
    [helix.dom :as d]
    [helix.hooks :as hooks]
-   [promesa.core :as p]))
+   [promesa.core :as p]
+   [util.metadata :as metadata]))
 
 (lh/defnc projects []
   (let [[project-list set-project-list] (hooks/use-state {:projects []})]
@@ -17,8 +17,7 @@
               json (.json res)
               data (js->clj json :keywordize-keys true)]
         (set-project-list assoc :projects data)))
-    (.log js/console (pp/pprint (:projects project-list)))
-    (set! (. js/document -title) "Projects")
+    (set! (. js/document -title) (str (:page-title metadata/site) "Projects"))
     (<>
      (d/div
       {:class-name "divide-y divide-gray-200 dark:divide-gray-700"}

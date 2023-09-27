@@ -1,10 +1,12 @@
 (ns app.not-found
   (:require
-   [helix.dom :as d])
+   [helix.dom :as d]
+   [util.metadata :as metadata])
   (:require-macros
    [lib.helix-wrapper :as lh]))
 
 (lh/defnc not-found []
+  (set! (. js/document -title) (str (:page-title metadata/site) "Not Found!"))
   (d/div
    {:class-name "flex flex-col items-start justify-start md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6"}
    (d/div

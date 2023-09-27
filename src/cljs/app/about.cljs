@@ -15,7 +15,7 @@
     (p/let [response (js/fetch "/assets/data/author.md")
             _response (.text response)]
       (set-body assoc :body _response))
-    (set! (. js/document -title) "About")
+    (set! (. js/document -title) (str (:page-title metadata/site) "About"))
     (<>
      ($ author-layout/author-layout {& author}
         ($ ReactMarkdown (:body body))))))
