@@ -5,7 +5,8 @@
    [helix.core :refer [$ <>]]
    [helix.hooks :as hooks]
    [layout.post-list :as list]
-   [promesa.core :as p]))
+   [promesa.core :as p]
+   [util.metadata :as metadata]))
 
 (lh/defnc blog []
   (let [POSTS_PER_PAGE 5
@@ -19,7 +20,7 @@
               json (.json res)
               data (js->clj json :keywordize-keys true)]
         (set-posts assoc :posts data)))
-    (set! (. js/document -title) "Blog")
+    (set! (. js/document -title) (str (:page-title metadata/site) "Blog"))
     (<>
      ($ list/post-list {:initial-posts (take POSTS_PER_PAGE (:posts posts))
                         :posts (:posts posts)

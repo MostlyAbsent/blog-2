@@ -1,12 +1,13 @@
 (ns app.tag
   (:require-macros
-    [lib.helix-wrapper :as lh])
+   [lib.helix-wrapper :as lh])
   (:require
    [clojure.string :as str]
    [helix.core :refer [$]]
    [helix.hooks :as hooks]
    [layout.post-list :as list]
-   [promesa.core :as p]))
+   [promesa.core :as p]
+   [util.metadata :as metadata]))
 
 (lh/defnc tag []
   (let [tag-name (-> js/document
@@ -35,7 +36,7 @@
             title (str/join " " (-> (:title t)
                                     str/capitalize
                                     (str/split "-")))]
-        (set! (.-title js/document) title)
+        (set! (. js/document -title) (str (:page-title metadata/site) title))
         ($ list/post-list
            {:posts (:posts tagged-posts)
             :initial-posts (:posts tagged-posts)
