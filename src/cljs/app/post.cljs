@@ -84,7 +84,7 @@
            {:class-name "text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"}
            (:title meta)))))
        (d/div
-        {:class-name "grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"}
+        {:class-name "grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-1 xl:gap-x-6 xl:divide-y-0"}
         (d/dl
          {:class-name "pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700"}
          (d/dt
@@ -105,7 +105,7 @@
               {:class-name "text-gray-900 dark:text-gray-100"}
               (:author metadata/site))))))
          (d/div
-          {:class-name "divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:rov-span-2 xl:pb-0"})
+          {:class-name "divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0"})
          ($ ReactMarkdown
             {:className "prose max-w-none pb-8 pt-10 dark:prose-invert"}
             text)))
