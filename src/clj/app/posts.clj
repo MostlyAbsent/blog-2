@@ -45,7 +45,9 @@
    (->> "./resources/public/assets/data/blog/"
         files-in-folder
         (filter markdown-filter)
-        (reduce post-metadada []))))
+        (reduce post-metadada [])
+        (sort-by :date)
+        reverse)))
 
 (defn posts-tagged [{:keys [path-params]}]
   (let [t (second (first path-params))
@@ -53,6 +55,8 @@
                    files-in-folder
                    (filter markdown-filter)
                    (reduce post-metadada [])
+                   (sort-by :date)
+                   reverse
                    (filter (fn [{:keys [tags]}]
                              (some #{t} tags))))]
     (r/response posts)))
