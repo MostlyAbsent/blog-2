@@ -3,15 +3,14 @@
    [lib.helix-wrapper :as lh])
   (:require
    ["react-markdown$default" :as ReactMarkdown]
-   [cljs.pprint :as pp]
    [clojure.string :as str]
+   [components.logo :as logo]
    [helix.core :refer [$]]
    [helix.dom :as d]
    [helix.hooks :as hooks]
    [promesa.core :as p]
    [util.date :as date]
-   [util.metadata :as metadata]
-   [components.logo :as logo]))
+   [util.metadata :as metadata]))
 
 (defn generate-meta [match-group]
   (for [match match-group]
