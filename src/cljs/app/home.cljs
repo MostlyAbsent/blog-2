@@ -51,7 +51,7 @@
 
 (lh/defnc home [{:keys [data]}]
   (set! (. js/document -title) "Just The Tips")
-  (let [MAX_DISPLAY 2]
+  (let [MAX_DISPLAY 5]
     (if data
       (<>
        (d/div
