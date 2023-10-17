@@ -1,4 +1,10 @@
 [{:title "guide"
   :description "Step-by-step instructions, tips, or valuable insights on a specific topic or task."}
  {:title "writings"
-  :description "A collection of thoughts on a topic."}]
+  :description "A collection of thoughts on a topic."}
+ {:title "life"
+  :description "General life content, not indended to be educational or useful."}
+ {:title "sewing"
+  :description "About my sewing projects, progress and ocassional referenced thoughts."}
+ {:title "coding"
+  :description "All things code. Interesting snippets to indepth research."}]
