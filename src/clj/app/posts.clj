@@ -46,8 +46,7 @@
         files-in-folder
         (filter markdown-filter)
         (reduce post-metadada [])
-        (sort-by :date)
-        reverse)))
+        (sort-by :date))))
 
 (defn posts-tagged [{:keys [path-params]}]
   (let [t (second (first path-params))
