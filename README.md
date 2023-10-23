@@ -1,7 +1,6 @@
 # blog-2
 Rebuild of the blog code
 
-
 # TODO
 
 ## 1 KBar Search Integration
@@ -26,4 +25,3 @@ I've left lorem ipsum as my author bio
 
 The footnotes aren't rendering, I wonder if remarkgfm might do the trick.
 
-## 5 Build the api routes
