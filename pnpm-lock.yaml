@@ -19,21 +19,21 @@ dependencies:
     version: 18.2.0(react@18.2.0)
   react-markdown:
     specifier: ^8.0.7
-    version: 8.0.7(@types/react@18.2.21)(react@18.2.0)
+    version: 8.0.7(@types/react@18.2.31)(react@18.2.0)
   react-refresh:
     specifier: ^0.14.0
     version: 0.14.0
   shadow-cljs:
-    specifier: ^2.25.3
-    version: 2.25.3
+    specifier: ^2.25.9
+    version: 2.25.9
   tailwindcss:
     specifier: ^3.3.3
     version: 3.3.3
 
 devDependencies:
   '@tailwindcss/typography':
-    specifier: ^0.5.9
-    version: 0.5.9(tailwindcss@3.3.3)
+    specifier: ^0.5.10
+    version: 0.5.10(tailwindcss@3.3.3)
   onchange:
     specifier: ^7.1.0
     version: 7.1.0
@@ -104,8 +104,8 @@ packages:
       tailwindcss: 3.3.3
     dev: false
 
-  /@tailwindcss/typography@0.5.9(tailwindcss@3.3.3):
-    resolution: {integrity: sha512-t8Sg3DyynFysV9f4JDOVISGsjazNb48AeIYQwcL+Bsq5uf4RYL75C1giZ43KISjeDGBaTN3Kxh7Xj/vRSMJUUg==}
+  /@tailwindcss/typography@0.5.10(tailwindcss@3.3.3):
+    resolution: {integrity: sha512-Pe8BuPJQJd3FfRnm6H0ulKIGoMEQS+Vq01R6M5aCrFB/ccR/shT+0kXLjouGC1gFLm9hopTFN+DMP0pfwRWzPw==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
     dependencies:
@@ -142,16 +142,20 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: false
 
-  /@types/react@18.2.21:
-    resolution: {integrity: sha512-neFKG/sBAwGxHgXiIxnbm3/AAVQ/cMRS93hvBpg8xYRbeQSPVABp9U2bRnPf0iI4+Ucdv3plSxKK+3CW2ENJxA==}
+  /@types/prop-types@15.7.9:
+    resolution: {integrity: sha512-n1yyPsugYNSmHgxDFjicaI2+gCNjsBck8UX9kuofAKlc0h1bL+20oSF72KeNaW2DUlesbEVCFgyV2dPGTiY42g==}
+    dev: false
+
+  /@types/react@18.2.31:
+    resolution: {integrity: sha512-c2UnPv548q+5DFh03y8lEDeMfDwBn9G3dRwfkrxQMo/dOtRHUUO57k6pHvBIfH/VF4Nh+98mZ5aaSe+2echD5g==}
     dependencies:
-      '@types/prop-types': 15.7.5
-      '@types/scheduler': 0.16.3
+      '@types/prop-types': 15.7.9
+      '@types/scheduler': 0.16.5
       csstype: 3.1.2
     dev: false
 
-  /@types/scheduler@0.16.3:
-    resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
+  /@types/scheduler@0.16.5:
+    resolution: {integrity: sha512-s/FPdYRmZR8SjLWGMCuax7r3qCWQw9QKHzXVukAuuIJkXkDRwp+Pu5LMIVFi0Fxbav35WURicYr8u1QsoybnQw==}
     dev: false
 
   /@types/unist@2.0.8:
@@ -1294,7 +1298,7 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: false
 
-  /react-markdown@8.0.7(@types/react@18.2.21)(react@18.2.0):
+  /react-markdown@8.0.7(@types/react@18.2.31)(react@18.2.0):
     resolution: {integrity: sha512-bvWbzG4MtOU62XqBx3Xx+zB2raaFFsq4mYiAzfjXJMEz2sixgeAfraA3tvzULF02ZdOMUOKTBFFaZJDDrq+BJQ==}
     peerDependencies:
       '@types/react': '>=16'
@@ -1302,7 +1306,7 @@ packages:
     dependencies:
       '@types/hast': 2.3.5
       '@types/prop-types': 15.7.5
-      '@types/react': 18.2.21
+      '@types/react': 18.2.31
       '@types/unist': 2.0.8
       comma-separated-tokens: 2.0.3
       hast-util-whitespace: 2.0.1
@@ -1454,8 +1458,8 @@ packages:
     resolution: {integrity: sha512-cZB2pzVXBnhpJ6PQdsjO+j/MksR28mv4QD/hP/2y1fsIa9Z9RutYgh3N34FZ8Ktl4puAXaIGlct+gMCJ5BmwmA==}
     dev: false
 
-  /shadow-cljs@2.25.3:
-    resolution: {integrity: sha512-vqziimWfQl6WbVq/mJbbIO7W9pg8tZrKxtehoA2kS713ro1PlZxGrZoKfrxCw9T03zgHrO/Zmh/y8GLtqKUbLQ==}
+  /shadow-cljs@2.25.9:
+    resolution: {integrity: sha512-EYVT7cR7uZR7J5v5c0tPXijphtbryAZXObv29Zk6VA/inn1RnWT0MBv4EV7E42qDUjBWAvE2n1JdmMq/yebkPw==}
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:

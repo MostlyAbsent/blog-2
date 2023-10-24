@@ -76,7 +76,7 @@
            (d/dd
             {:class-name "text-base font-medium leading-6 text-gray-500 dark:text-gray-400"}
             (d/time
-             {:datetime (if (:date meta) (.toISOString (:date meta)))}
+             {:dateTime (if (:date meta) (.toISOString (:date meta)))}
              (if (:date meta) (date/format-date (:date meta) (:locale metadata/site)))))))
          (d/div
           (d/h1
