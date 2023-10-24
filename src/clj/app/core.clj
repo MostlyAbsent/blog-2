@@ -20,8 +20,9 @@
      ["api/"
       ["tag-data/*" tags/tag-data]
       ["tag-counts" tags/tag-counts]
-      ["posts-tagged/*" posts/posts-tagged]
+      ["posts-tagged/:tag" posts/posts-tagged]
       ["posts" posts/posts]
+      ["post/:blog" posts/post]
       ["projects" projects/projects]]
      ["assets/*" (ring/create-file-handler {:root "./resources/public/assets/"})]
      ["" (fn [_] {:body (index) :status 200})]

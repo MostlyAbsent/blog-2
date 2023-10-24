@@ -1,10 +1,9 @@
----
-title: 'Algorithms, Applications and Corsets'
-date: '2023-06-15'
-tags: ['life', 'sewing', 'coding']
+title: Algorithms, Applications and Corsets
+date: 2023-10-24
+tags: life, sewing, coding
 draft: false
-summary: 'A quick update on what I've been up to in October. My life is odd.'
----
+summary: A quick update on what I've been up to in October. My life is odd.
+
 # Introduction
 
 Already October, it's been pretty quiet blog wise. Primarily I've been working on three things, an algorithms refresher course, job applications, and a corset. None of which lend themselves to topic based blogs without considerable atomization and additional research. Today I'll just address a few broad thoughts I've had about each and see where that gets us.

@@ -4,6 +4,7 @@
         metosin/reitit {:mvn/version "0.7.0-alpha5"}
         metosin/muuntaja {:mvn/version "0.6.8"}
         ring/ring {:mvn/version "1.10.0"}
+        markdown-clj/markdown-clj {:mvn/version "1.11.7"}
         javax.servlet/javax.servlet-api {:mvn/version "4.0.1"}
         funcool/promesa {:mvn/version "11.0.678"}}
  :aliases

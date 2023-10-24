@@ -2,7 +2,7 @@
   (:require-macros
    [lib.helix-wrapper :as lh])
   (:require
-   ["react-markdown$default" :as ReactMarkdown]
+   ["html-react-parser" :as hrp]
    [clojure.string :as str]
    [components.logo :as logo]
    [helix.core :refer [$]]
@@ -11,19 +11,6 @@
    [promesa.core :as p]
    [util.date :as date]
    [util.metadata :as metadata]))
-
-(defn generate-meta [match-group]
-  (for [match match-group]
-    (let [key (keyword (second match))
-          value (nth match 2)]
-      (cond
-        (= key :title) {:title (second (re-find #"'(.*)'" value))}
-        (= key :date)  {:date (js/Date.
-                               (second (re-find #"'(.*)'" value)))}
-        (= key :tags)  {:tags  (map second (re-seq #"'(.+?)'" value))}
-        (= key :draft) {:draft (not (= value "false"))}
-        (= key :summary) {:summary (second (re-find #"'(.*)'" value))}
-        :else nil))))
 
 (lh/defnc post []
   (let [blog-name (-> js/document
@@ -34,18 +21,13 @@
         [text set-text] (hooks/use-state "")
         [meta set-meta] (hooks/use-state ())]
     (hooks/use-effect
-      []
-      (p/let [f (js/fetch (str "/assets/data/blog/" blog-name ".md"))
-              t (.text f)
-              splits (str/split t "---")]
-        (set-text (nth splits 2))
-        (->> (nth splits 1)
-             (re-seq #"(.+): (.+)")
-             generate-meta
-             (remove nil?)
-             (reduce merge)
-             set-meta)))
-    (set! (. js/document -title) (str (:page-title metadata/site) (:title meta)))
+     []
+     (p/let [p (js/fetch (str "/api/post/" blog-name))
+             j (.json p)
+             c (js->clj j :keywordize-keys true)]
+       (set-meta (:metadata c))
+       (set-text (:html c))))
+    (set! (. js/document -title) (str (:page-title metadata/site) (first (:title meta))))
     (d/section
      {:class-name "mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0"}
      (d/div
@@ -76,8 +58,9 @@
            (d/dd
             {:class-name "text-base font-medium leading-6 text-gray-500 dark:text-gray-400"}
             (d/time
-             {:dateTime (if (:date meta) (.toISOString (:date meta)))}
-             (if (:date meta) (date/format-date (:date meta) (:locale metadata/site)))))))
+             (let [d (js/Date. (first (:date meta)))]
+               {:dateTime  (if d (.toISOString d))}
+               (if d (date/format-date d (:locale metadata/site))))))))
          (d/div
           (d/h1
            {:class-name "text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"}
@@ -105,9 +88,9 @@
               (:author metadata/site))))))
          (d/div
           {:class-name "divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0"})
-         ($ ReactMarkdown
+         ($ "div"
             {:className "prose max-w-none pb-8 pt-10 dark:prose-invert"}
-            text)))
+            (hrp text))))
        (d/footer
         (d/div
          {:class-name "divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y"}

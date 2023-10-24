@@ -1,10 +1,9 @@
----
-title: 'React Email'
-date: '2023-10-04'
-tags: ['technology']
+title: React Email
+date: 2023-10-04
+tags: technology
 draft: true
-summary: 'A look at React Email.'
----
+summary: A look at React Email.
+
 # Introduction
 
 Creating attractive emails in the current (2023) landscape is quite difficult given the esoteric version of HTML used in rendering email. React Email abstracts these implementation details away allowing you to design and write your emails using React and TypeScript to more easily keep a consistent design language across your digital media.

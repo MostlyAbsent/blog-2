@@ -3,7 +3,8 @@
    [clojure.edn :as edn]
    [clojure.java.io :as io]
    [clojure.string :as str]
-   [ring.util.response :as r]))
+   [ring.util.response :as r]
+   [markdown.core :as md]))
 
 (defn files-in-folder
   [path]
@@ -14,24 +15,9 @@
 (defn markdown-filter [f]
   (= (second (re-find #"(\.[a-zA-Z0-9]+)$" (.getName f))) ".md"))
 
-(defn generate-meta [match-group]
-  (for [match match-group]
-    (let [key (keyword (second match))
-          value (nth match 2)]
-      (cond
-        (= key :tags) (map second (re-seq #"'(.+?)'" value))
-        :else nil))))
-
-(defn grab-meta-block [t]
-  (->> (second (str/split t #"---"))
-       (re-seq #"(.+): (.+)")
-       generate-meta
-       (remove nil?)
-       (reduce merge)))
-
 (defn tag-counter [acc f]
   (let [t (slurp f)
-        metadata (grab-meta-block t)
+        metadata (str/split (first (:tags (md/md-to-meta t))) #", ")
         tags (reduce (fn [acc x] (assoc acc x 1)) {} metadata)]
     (reduce (fn [acc y]
               (let [x (first y)]

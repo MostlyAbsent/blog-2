@@ -108,7 +108,7 @@
                 (str t " (" (get tag-count t) ")"))))))))
        (d/div
         (d/ul
-         (for [{:keys [path date title summary tags]} initial-posts]
+         (for [{{:keys [path date title summary tags]} :metadata} initial-posts]
            (d/li
             {:key path
              :class-name "py-5"}
@@ -121,8 +121,8 @@
               (d/dd
                {:class-name "text-base font-medium leading-6 text-gray-500 dark:text-gray-400"}
                (d/time
-                {:date-time date}
-                (date/format-date date (metadata/site :locale)))))
+                {:date-time (first date)}
+                (date/format-date (first date) (metadata/site :locale)))))
              (d/div
               {:class-name "space-y-3"}
               (d/div

@@ -1,10 +1,9 @@
----
-title: 'Turso'
-date: '2023-10-24'
-tags: ['technology']
+title: Turso First Look
+date: 2023-10-24
+tags: technology
 draft: false
-summary: 'A first impressions of Turso.'
----
+summary: A first impressions of Turso.
+
 # Turso first look
 
 An edge database for the 90%. The Turso offerings are well suited to handle workloads from the tiny to the very-large; basically until you're big enough to need a fully custom solution, Turso should do the trick. Based on SQLite and extended to edge computing the time to market for a dev team should be minimal.

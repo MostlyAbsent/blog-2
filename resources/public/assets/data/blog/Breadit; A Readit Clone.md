@@ -1,10 +1,8 @@
----
-title: 'Breadit, A Readit Clone'
-date: '2023-08-30'
-tags: ['projects']
+title: Breadit, A Readit Clone
+date: 2023-08-30
+tags: projects
 draft: false
-summary: 'A Full Stack Reddit clone, built using React, Next.js; using planetscale datase, OAuth2 authentication, and upstash redis caching.'
----
+summary: A Full Stack Reddit clone, built using React, Next.js; using planetscale datase, OAuth2 authentication, and upstash redis caching.
 
 # Introduction
 

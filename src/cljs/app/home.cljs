@@ -8,9 +8,10 @@
    [util.date :as date]
    [util.metadata :as metadata]))
 
-(defn post [{:keys [slug date title summary tags]}]
+(defn post [{{:keys [slug date title summary tags]} :metadata}]
   (d/li
-   {:class-name "py-12"}
+   {:class-name "py-12"
+    :key slug}
    ($ "article"
       (d/div
        {:class-name "space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline"}
@@ -21,8 +22,8 @@
         (d/dd
          {:class-name "text-base font-medium leading-6 text-gray-500 dark:text-gray-400"}
          (d/time
-          {:date-time date}
-          (date/format-date date (metadata/site :locale)))))
+          {:date-time (first date)}
+          (date/format-date (first date) (metadata/site :locale)))))
        (d/div
         {:class-name "space-y-5 xl:col-span-3"}
         (d/div
@@ -36,8 +37,11 @@
             title))
           (d/div
            {:class-name "flex flex-wrap"}
-           (map (fn [t] ($ tag/tag {:title (:title t)
-                                    :key (:key t)})) tags)))
+           (for [t tags]
+             (d/span
+              {:key t
+               :class-name "mb-2 mr-5 mt-2"}
+              ($ tag/tag {:title t})))))
          (d/div
           {:class-name "prose max-w-none text-gray-500 dark:text-gray-400"}
           summary)
