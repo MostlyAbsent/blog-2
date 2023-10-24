@@ -2,8 +2,7 @@
   (:require
    [clojure.java.io :as io]
    [clojure.string :as str]
-   [ring.util.response :as r]
-   [app.tags :as tags]))
+   [ring.util.response :as r]))
 
 (defn files-in-folder
   [path]
