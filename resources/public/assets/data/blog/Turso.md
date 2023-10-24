@@ -3,7 +3,7 @@ title: 'Turso'
 date: '2023-10-24'
 tags: ['technology']
 draft: false
-summary: 'A look at Turso.'
+summary: 'A first impressions of Turso.'
 ---
 # Turso first look
 
