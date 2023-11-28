@@ -1,7 +1,7 @@
 title: Corsets make Sudoku Hard
 date: 2023-11-13
 tags: technology, sewing
-draft: true
+draft: false
 summary: I've been developing a Sudoku app for my website, aiming to finish it last week, but I got sidetracked adjusting a corset. Despite the distraction, progress on the corset is going well, and I plan to refocus on the Sudoku app as my primary project this week.
 
 # Corsets make Sudoku Hard
