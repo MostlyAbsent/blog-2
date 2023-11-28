@@ -4,4 +4,4 @@ services:
     build: .
     restart: always
     ports:
-      - 80:3000
+      - 6970:3000
