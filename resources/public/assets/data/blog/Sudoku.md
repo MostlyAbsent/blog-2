@@ -6,7 +6,7 @@ summary: Developed and launched a Sudoku app, navigating solver intricacies, evo
 
 # Sudoku, The Project
 
-I've recently launched the [Sudoku app](http://just-the.tips/projects/sudoku), exploring three interesting aspects; the solver element, the data model, and the deployment using reverse proxy/docker.
+I've recently launched the [Sudoku app](http://sudoku.just-the.tips), exploring three interesting aspects; the solver element, the data model, and the deployment using reverse proxy/docker.
 
 ## Sudoku Solver
 Exploring programmatic sudoku solvers led me to an 11-year-old example[^3] that required updating to run on modern Clojure due to outdated set mathematics module requirements. Despite finding smaller functional approaches, this straightforward and performant solver required very little adaptation to integrate with the UI's data model.
