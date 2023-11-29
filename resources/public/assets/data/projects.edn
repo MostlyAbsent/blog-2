@@ -1,4 +1,8 @@
 [{:title "breadit"
   :description "A Full Stack Reddit clone, built using React, Next.js; using planetscale datase, OAuth2 authentication, and upstash redis caching."
   :img-src "/assets/data/img/breadit.png"
-  :href "https://breadit.just-the.tips"}]
+  :href "https://breadit.just-the.tips"}
+ {:title "sudoku"
+  :description "A simple (and a little ugly) client side sudoku app."
+  :img-src "/assets/data/img/sudoku.jpg"
+  :href "http://just-the.tips/blog/Sudoku"}]
